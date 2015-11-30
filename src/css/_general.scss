@@ -20,3 +20,17 @@ a {
         text-decoration: underline;
     }
 }
+
+.ls-rule__name {
+    @include fs-header(2);
+    margin: 0 0 12px 0;
+}
+
+.ls-rule__copy {
+    margin: 0 0 8px 0;
+}
+
+.ls-rule__map {
+    width: 100%;
+    max-width: 100%;
+}
