@@ -3,8 +3,6 @@ figure.interactive {
     margin: 0;
     padding: 0;
     background-color: white;
-
-    @include fs-bodyCopy(2);
 }
 
 // Link styles don't exist on the app
@@ -21,16 +19,53 @@ a {
     }
 }
 
+.ls-rules {
+    list-style: none;
+    counter-reset: rules;
+    margin: 0;
+    padding: 0;
+}
+
+.ls-rule {
+    display: block;
+    position: relative;
+    padding-bottom: 60.8%;
+
+    background-image: url(./assets/img/map0.png);
+    background-size: cover;
+}
+
+.ls-rule-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-size: cover;
+}
+
 .ls-rule__name {
     @include fs-header(2);
+    color: #b82266;
     margin: 0 0 12px 0;
 }
 
 .ls-rule__copy {
-    margin: 0 0 8px 0;
-}
+    @include fs-textSans(3);
 
-.ls-rule__map {
-    width: 100%;
-    max-width: 100%;
+    position: relative;
+    margin: 0;
+    padding-left: 35px;
+    max-width: 420px;
+
+    counter-increment: rules;
+
+    &::before {
+        @include fs-headline(9);
+        color: #b82266;
+        content: counter(rules);
+        position: absolute;
+        left: 0;
+    }
 }

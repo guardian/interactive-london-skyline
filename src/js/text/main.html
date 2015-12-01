@@ -1,7 +1,10 @@
-{{~it.rules :rule:i}}
-    <div class="ls-rule">
-        <h2 class="ls-rule__name">{{=rule.rule}}</h2>
-        <p class="ls-rule__copy">{{=rule.copy}}</p>
-        <img  class="ls-rule__map" src="{{=it.config.assetPath}}/assets/img/map{{=i + 1}}.png" />
-    </div>
-{{~}}
+<ul class="ls-rules">
+    {{~it.rules :rule:i}}
+        <li class="ls-rule">
+            <div class="ls-rule-container" style="background-image: url({{=it.config.assetPath}}/assets/img/map{{=i+1}}.png)">
+                <h2 class="ls-rule__name">{{=rule.rule}}</h2>
+                <p class="ls-rule__copy">{{=rule.copy}}</p>
+            </div>
+        </li>
+    {{~}}
+</ul>
