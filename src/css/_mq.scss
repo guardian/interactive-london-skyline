@@ -8,14 +8,15 @@ $mq-responsive: true;
 // across team members. It will improve communication between
 // stakeholders, designers, developers, and testers.
 $mq-breakpoints: (
-    mobile:  300px,
-    tablet:  685px,
-    desktop: 925px,
-    leftCol: 1085px,
-    wide:    1255px,
+    mobile:  320px,
+    tablet:  740px,
+    desktop: 980px,
+    leftCol: 1140px,
+    wide:    1300px,
 
     // Tweakpoints
-    mobileLandscape: 415px
+    desktopAd: 810px,
+    mobileLandscape: 480px
 );
 
 // Define the breakpoint from the $mq-breakpoints list that should
@@ -28,4 +29,4 @@ $mq-static-breakpoint: desktop;
 // to this list, ordered by width, e.g. (mobile, tablet, desktop).
 // $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 
-@import 'bower_components/sass-mq/mq';
+@import '../../bower_components/sass-mq/mq';
