@@ -1,10 +1,16 @@
-<ul class="ls-rules">
-    {{~it.rules :rule:i}}
-        <li class="ls-rule">
-            <div class="ls-rule-container" style="background-image: url({{=it.config.assetPath}}/assets/img/map{{=i+1}}.png)">
-                <h2 class="ls-rule__name">{{=rule.rule}}</h2>
-                <p class="ls-rule__copy">{{=rule.copy}}</p>
-            </div>
-        </li>
-    {{~}}
-</ul>
+<div class="ls-container ls-sticky js-ls-container">
+    <h2 class="ls-title">How the Eastern cluster was defined</h2>
+    <img class="ls-base-map" src="{{=it.config.assetPath}}/assets/img/map0.png" />
+</div>
+<div class="ls-container">
+    <ul class="ls-rules">
+        {{~it.rules :rule:i}}
+            <li class="ls-rule">
+                <div class="ls-rule-container" style="background-image: url({{=it.config.assetPath}}/assets/img/map{{=i+1}}.png)">
+                    <h3 class="ls-rule__name">{{=rule.rule}}</h3>
+                    <p class="ls-rule__copy">{{=rule.copy}}</p>
+                </div>
+            </li>
+        {{~}}
+    </ul>
+</div>

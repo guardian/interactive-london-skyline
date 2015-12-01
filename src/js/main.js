@@ -1,6 +1,7 @@
 import doT from 'olado/doT'
 import reqwest from 'reqwest'
 import sheetURL from './lib/sheetURL'
+import sticky from './lib/sticky'
 
 import mainHTML from './text/main.html!text'
 
@@ -9,6 +10,7 @@ var sheet = sheetURL('1pmrlEZalQnqUHYT63y2fsrYbCXtbN1oAkEWHQ_n3VFA', true); // T
 
 function app(el, config, rules) {
     el.innerHTML =  templateFn({rules, config});
+    sticky(el, el.querySelector('.js-ls-container'));
 }
 
 export function init(el, context, config, mediator) {
