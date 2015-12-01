@@ -43,6 +43,21 @@ a {
     }
 }
 
+.ls-sticky__inner {
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 10px;
+    @include mq(mobileLandscape) {
+        padding: 0 20px;
+    }
+
+    @each $bp in (tablet, desktop, leftCol, wide) {
+        @include mq($bp) {
+            max-width: map-get($mq-breakpoints, $bp);
+        }
+    }
+}
+
 .ls-title {
     @include fs-header(5);
     margin: 0;
@@ -55,15 +70,25 @@ a {
     }
 }
 
-.ls-base-map {
+.ls-map {
     width: 100%;
+    display: none;
+
+    &.is-selected,
+    &.ls-map--base {
+        display: block;
+    }
+
+    &.is-selected {
+        margin-top: -60.8%;
+    }
 }
 
 .ls-rules {
     list-style: none;
     counter-reset: rules;
     margin: 0 0 16px !important; // Override NGW
-    padding: get-line-height(header, 5) 0 0;
+    padding: get-line-height(header, 5) 0 0 !important;
 }
 
 .ls-rule {
@@ -82,8 +107,6 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-
-    background-size: cover;
 
     padding-top: 10%;
 

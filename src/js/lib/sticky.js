@@ -1,4 +1,4 @@
-var rAF = window.requestAnimationFrame || (fn => fn());
+import rAF from './rAF';
 
 function getOffset(el) {
     return el ? el.offsetTop + getOffset(el.offsetParent) : 0;
