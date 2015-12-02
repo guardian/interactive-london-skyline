@@ -1,9 +1,15 @@
+$top: 12px;
+
 body,
-figure.interactive {
+figure.ls-interactive {
     position: relative;
     margin: 0;
     padding: 0;
     background-color: white;
+}
+
+figure.ls-interactive {
+    margin-top: -$top;
 }
 
 // Link styles don't exist on the app
@@ -20,26 +26,21 @@ a {
     }
 }
 
-.ls-container {
-    position: relative;
-    padding: 0 10px;
-    @include mq(mobileLandscape) {
-        padding: 0 20px;
-    }
-}
-
 .ls-sticky {
     position: absolute;
     left: 0;
     right: 0;
+    padding-top: $top;
 
-    &.is-sticky {
-        position: fixed;
-        top: 0;
-    }
+    @include mq(tablet) {
+        &.is-sticky {
+            position: fixed;
+            top: 0;
+        }
 
-    &.is-bottom {
-        bottom: 0;
+        &.is-bottom {
+            bottom: 0;
+        }
     }
 }
 
@@ -51,22 +52,38 @@ a {
         padding: 0 20px;
     }
 
-    @each $bp in (mobileLandscape, tablet, desktop, leftCol, wide) {
+    .ls-app & {
+        padding: 0;
+    }
+
+    @include mq(tablet) {
+        .ls-app .is-sticky & {
+            padding: 0 20px;
+        }
+    }
+
+    @each $bp in (phablet, tablet, desktop, leftCol, wide) {
         @include mq($bp) {
             max-width: map-get($mq-breakpoints, $bp);
         }
     }
 }
 
+.prose h2.ls-title, // Override apps
 .ls-title {
-    @include fs-header(5);
+    @include fs-header(2);
     margin: 0;
+    white-space: nowrap;
 
     @include mq(leftCol) {
         padding-left: 160px;
     }
     @include mq(wide) {
         padding-left: 240px;
+    }
+
+    @include mq(tablet) {
+        @include fs-header(5, $size-only: true);
     }
 }
 
@@ -84,32 +101,67 @@ a {
     }
 }
 
+.ls-container {
+    position: relative;
+    padding: 0 10px;
+    @include mq(mobileLandscape) {
+        padding: 0 20px;
+    }
+
+    .ls-app & {
+        padding: 0;
+    }
+}
+
 .ls-rules {
     list-style: none;
     counter-reset: rules;
     margin: 0 0 16px !important; // Override NGW
-    padding: get-line-height(header, 5) 0 0 !important;
+    padding: (get-line-height(header, 2) + $top) 0 0 !important;
+
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    @include mq(tablet) {
+        white-space: normal;
+        overflow-x: visible;
+        overflow-y: visible;
+        padding-top: (get-line-height(header, 5) + $top) !important;
+    }
 }
 
 .ls-rule {
-    display: block;
-    position: relative;
-    padding-bottom: 60.8%;
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+
+    @include mq(tablet) {
+        display: block;
+    }
 
     &::before {
         display: none !important; // Override NGW
     }
 }
 
+.ls-rule-size {
+    position: relative;
+    padding-top: 60.8%;
+}
+
 .ls-rule-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    white-space: normal;
+    padding-top: 10px;
 
-    padding-top: 10%;
+    @include mq(tablet) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
 
+        padding-top: 10%;
+    }
     @include mq(leftCol) {
         padding-left: 160px;
     }
@@ -119,9 +171,15 @@ a {
 }
 
 .ls-rule__name {
-    @include fs-header(2);
+    @include f-header;
+    font-size: 16px;
+    line-height: 20px;
     color: #b82266;
     margin: 0 0 12px 0;
+
+    @include mq(tablet) {
+        @include fs-header(2, $size-only: true);
+    }
 }
 
 .ls-rule__copy {
@@ -129,7 +187,7 @@ a {
 
     position: relative;
     margin: 0;
-    padding-left: 35px;
+    padding: 0 10px 0 35px;
     max-width: 420px;
 
     counter-increment: rules;
