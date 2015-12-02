@@ -48,12 +48,13 @@ function app(el, config, rules) {
 
     window.addEventListener('scroll', () => {
         if (window.innerWidth < breakpoint) return;
-        setSelected('top', 20);
+        setSelected('top', 50);
     });
 
     var rulesEl = el.querySelector('.js-ls-rules');
     rulesEl.addEventListener('scroll', () => {
-        setSelected('left', rulesEl.getBoundingClientRect().left + 20);
+        var rect = rulesEl.getBoundingClientRect();
+        setSelected('left', rect.left + rect.width * 0.25);
     });
 
     if (window.GuardianJSInterface && isAndroid()) {
