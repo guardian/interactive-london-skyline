@@ -32,6 +32,10 @@ function app(el, config, rules) {
                     break;
                 }
             }
+            if (i < 0 && lastMapEl) {
+                lastMapEl.classList.remove('is-selected');
+                lastMapEl = undefined;
+            }
         });
     });
 }

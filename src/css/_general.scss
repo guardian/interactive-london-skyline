@@ -51,7 +51,7 @@ a {
         padding: 0 20px;
     }
 
-    @each $bp in (tablet, desktop, leftCol, wide) {
+    @each $bp in (mobileLandscape, tablet, desktop, leftCol, wide) {
         @include mq($bp) {
             max-width: map-get($mq-breakpoints, $bp);
         }
