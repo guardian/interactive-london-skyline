@@ -1,4 +1,5 @@
 $top: 12px;
+$ratio: 819 / 1300 * 100%;
 
 body,
 figure.ls-interactive {
@@ -90,7 +91,7 @@ a {
 .ls-map {
     width: 100%;
     opacity: 0;
-    margin-top: -60.8%;
+    margin-top: -$ratio;
 
     transition: opacity 0.3s linear;
     &.is-selected,
@@ -148,7 +149,7 @@ a {
 
 .ls-rule-size {
     position: relative;
-    padding-top: 60.8%;
+    padding-top: $ratio;
 }
 
 .ls-rule-container {
