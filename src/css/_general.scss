@@ -163,7 +163,7 @@ a {
         right: 0;
         bottom: 0;
 
-        padding-top: 10%;
+        padding-top: 20%;
     }
     @include mq(leftCol) {
         padding-left: 160px;
@@ -177,29 +177,22 @@ a {
     @include f-header;
     font-size: 16px;
     line-height: 20px;
-    color: #b82266;
     margin: 0 0 12px 0;
 
     @include mq(tablet) {
-        @include fs-header(2, $size-only: true);
+        @include fs-header(3, $size-only: true);
     }
 }
 
 .ls-rule__copy {
-    @include fs-textSans(3);
+    @include fs-bodyCopy(2);
+
+    color: #767676;
 
     position: relative;
     margin: 0;
-    padding: 0 10px 0 35px;
+    padding: 0 10px 0 0;
     max-width: 420px;
 
     counter-increment: rules;
-
-    &::before {
-        @include fs-headline(9);
-        color: #b82266;
-        content: counter(rules);
-        position: absolute;
-        left: 0;
-    }
 }
