@@ -90,17 +90,15 @@ a {
 
 .ls-map {
     width: 100%;
-    opacity: 0;
-    margin-top: -$ratio;
 
-    transition: opacity 0.3s linear;
-    &.is-selected,
-    &.ls-map--base {
-        opacity: 1;
-    }
-
-    &.ls-map--base {
-        margin-top: 0;
+    &.ls-map--rule {
+        mix-blend-mode: multiply;
+        margin-top: -$ratio;
+        opacity: 0;
+        transition: opacity 0.3s linear;
+        &.is-selected {
+            opacity: 1;
+        }
     }
 }
 
