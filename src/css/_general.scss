@@ -110,7 +110,6 @@ a {
     @include mq(mobileLandscape) {
         padding: 0 20px;
     }
-
     .ls-app & {
         padding: 0;
     }
@@ -154,7 +153,7 @@ a {
 
 .ls-rule-container {
     white-space: normal;
-    padding-top: 10px;
+    padding: 10px 0 40px;
 
     @include mq(tablet) {
         position: absolute;
@@ -163,7 +162,7 @@ a {
         right: 0;
         bottom: 0;
 
-        padding-top: 20%;
+        padding: 20% 0 0;
     }
     @include mq(leftCol) {
         padding-left: 160px;
@@ -195,4 +194,36 @@ a {
     max-width: 420px;
 
     counter-increment: rules;
+}
+
+.ls-rules-next {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    @include mq(mobileLandscape) {
+        right: 20px;
+    }
+    @include mq(tablet) {
+        display: none;
+    }
+
+}
+.ls-rules-next__btn {
+    @include fs-textSans(4);
+    font-weight: bold;
+    margin: 0;
+    padding: 0 0 0 10px;
+    border: 0;
+    outline: 0;
+    border-radius: 100px;
+    background: #005689;
+    color: white;
+    cursor: pointer;
+
+    svg {
+        display: inline-block;
+        vertical-align: middle;
+        width: 44px;
+        height: 44px;
+    }
 }
