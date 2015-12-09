@@ -170,6 +170,12 @@ a {
     }
 }
 
+.ls-rule__no {
+    @include fs-textSans(2);
+    margin: 0;
+    color: #767676;
+}
+
 .ls-rule__copy {
     @include fs-bodyCopy(2);
 
