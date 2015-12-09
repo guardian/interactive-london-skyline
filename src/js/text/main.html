@@ -3,7 +3,7 @@
         <h2 class="ls-title">{{=it.data.config.headline}}</h2>
         <div class="ls-map"><img src="{{=it.config.assetPath}}/assets/img/map0.png" /></div>
         {{~it.data.rules :rule:i}}
-        <div class="ls-map ls-map--rule js-ls-map {{?!i}}is-selected{{?}}">
+            <div class="ls-map ls-map--{{=i}} ls-map--rule js-ls-map {{?!i}}is-selected{{?}}">
                 <img {{?!i}}style="visibility:hidden"{{?}} src="{{=it.config.assetPath}}/assets/img/map{{=i}}.png" />
                 <ul class="ls-map-labels">
                     {{~rule.labels :label}}

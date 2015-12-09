@@ -132,18 +132,22 @@ a {
     line-height: 18px;
     color: #767676;
 
+    .ls-map--6 &::before {
+        display: inline-block !important;
+        border-radius: 100px !important;
+        background-color: #333 !important;
+        content: '' ;
+        width: 3px !important;
+        height: 3px !important;
+    }
+
     font-size: 0;
     @include mq(tablet) {
         font-size: 14px;
-    }
-
-    &::before {
-        display: inline-block;
-        border-radius: 100px;
-        background-color: #333;
-        content: '';
-        width: 3px;
-        height: 3px;
+        .ls-map--6 &::before,
+        &::before {
+            display: none !important // Override NGW;
+        }
     }
 
     &.ls-map-labels__label--sp {
@@ -153,7 +157,7 @@ a {
         font-weight: bold;
 
         &::before {
-            display: none;
+            display: none !important;
         }
     }
     &.ls-map-labels__label--cl {
