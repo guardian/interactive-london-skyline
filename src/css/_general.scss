@@ -167,7 +167,9 @@ a {
     &.ls-map-labels__label--sp {
         display: block;
         color: #333;
-        font-size: 16px;
+        @include mq(tablet) {
+            font-size: 16px;
+        }
         font-weight: bold;
         opacity: 1;
 
@@ -177,12 +179,12 @@ a {
     }
     &.ls-map-labels__label--cl {
         color: #bdbdbd;
-        @include mq(desktop) {
-            font-size: 18px;
-        }
+        font-size: 18px;
         font-weight: bold;
         letter-spacing: 8px;
         opacity: 0.6;
+        margin-left: -80px;
+        white-space: nowrap;
     }
 }
 
@@ -257,7 +259,7 @@ a {
 
 .ls-rule__no {
     @include fs-textSans(2);
-    margin: 0;
+    margin: 0 !important;
     color: #767676;
 }
 
@@ -271,7 +273,7 @@ a {
     color: #767676;
 
     position: relative;
-    margin: 0;
+    margin: 0 !important;
     padding: 0 10px 0 0;
     max-width: 420px;
 
