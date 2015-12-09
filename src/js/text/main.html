@@ -1,10 +1,19 @@
 <div class="ls-sticky js-ls-container">
     <div class="ls-sticky__inner">
         <h2 class="ls-title">{{=it.data.config.headline}}</h2>
-        <img class="ls-map" src="{{=it.config.assetPath}}/assets/img/map0.png" />
+        <div class="ls-map"><img src="{{=it.config.assetPath}}/assets/img/map0.png" /></div>
         {{~it.data.rules :rule:i}}
-            <img class="ls-map ls-map--rule js-ls-map" {{?!i}}style="visibility:hidden"{{?}}
-                 src="{{=it.config.assetPath}}/assets/img/map{{=i}}.png" />
+        <div class="ls-map ls-map--rule js-ls-map {{?!i}}is-selected{{?}}">
+                <img {{?!i}}style="visibility:hidden"{{?}} src="{{=it.config.assetPath}}/assets/img/map{{=i}}.png" />
+                <ul class="ls-map-labels">
+                    {{~rule.labels :label}}
+                        <li class="ls-map-labels__label ls-map-labels__label--{{=label.style}}"
+                            style="left: {{=label.left}}; top: {{=label.top}}; {{?label.width}}width: {{=label.width}}{{?}}">
+                            {{=label.name}}
+                        </li>
+                    {{~}}
+                </ul>
+            </div>
         {{~}}
     </div>
 </div>
@@ -15,16 +24,19 @@
                 <div class="ls-rule-size">
                     <div class="ls-rule-container">
                         <p class="ls-rule__no">{{?i > 0}}{{=i}} of {{=it.data.rules.length - 1}}{{?}}</p>
-                        <p class="ls-rule__copy">{{=rule.copy}}</p>
+                        <p class="ls-rule__copy">
+                            {{=rule.copy}}
+
+                            {{?!i}}
+                                <button class="ls-rules-next__btn">
+                                    More
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path fill="currentColor" d="M22.82 14.63l-7.62-7.63-.72.7 5.5 6.57h-13.98v1.46h13.97l-5.5 6.56.73.7 7.62-7.63v-.74"/></svg>
+                                </button>
+                            {{?}}
+                        </p>
                     </div>
                 </div>
             </li>
         {{~}}
     </ul>
-    <div class="ls-rules-next">
-        <button class="ls-rules-next__btn">
-            Swipe right for more
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path fill="currentColor" d="M22.82 14.63l-7.62-7.63-.72.7 5.5 6.57h-13.98v1.46h13.97l-5.5 6.56.73.7 7.62-7.63v-.74"/></svg>
-        </button>
-    </div>
 </div>

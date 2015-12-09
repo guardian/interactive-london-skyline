@@ -39,16 +39,17 @@ function app(el, config, data) {
                     break;
                 }
             }
-            if (i < 0 && lastMapEl) {
-                lastMapEl.classList.remove('is-selected');
-                lastMapEl = undefined;
+            if (i < 0 && lastMapEl !== mapEls[0]) {
+                if (lastMapEl) lastMapEl.classList.remove('is-selected');
+                lastMapEl = mapEls[0];
+                lastMapEl.classList.add('is-selected');
             }
         });
     }
 
     window.addEventListener('scroll', () => {
         if (window.innerWidth < breakpoint) return;
-        setSelected('top', 50);
+        setSelected('top', 350);
     });
 
     var rulesEl = el.querySelector('.js-ls-rules');
