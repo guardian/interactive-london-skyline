@@ -90,18 +90,21 @@ a {
 
 .ls-map {
     position: relative;
+    padding-bottom: $ratio;
 
     img {
-        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        mix-blend-mode: multiply;
+        height: 100%;
     }
 
     &.ls-map--rule {
         margin-top: -$ratio;
 
         opacity: 0;
-        //transition: opacity 0.3s linear;
+        transition: opacity 0.3s linear;
         &.is-selected {
             opacity: 1;
         }
@@ -132,21 +135,24 @@ a {
     line-height: 18px;
     color: #767676;
 
+    &::before {
+        display: none !important // Override NGW;
+    }
+
     .ls-map--6 &::before {
         display: inline-block !important;
         border-radius: 100px !important;
         background-color: #333 !important;
-        content: '' ;
-        width: 3px !important;
-        height: 3px !important;
+        content: '';
+        width: 4px !important;
+        height: 4px !important;
     }
 
     font-size: 0;
-    @include mq(tablet) {
+    @include mq(desktop) {
         font-size: 14px;
-        .ls-map--6 &::before,
-        &::before {
-            display: none !important // Override NGW;
+        .ls-map--6 &::before {
+            display: none !important;
         }
     }
 
@@ -162,7 +168,9 @@ a {
     }
     &.ls-map-labels__label--cl {
         color: #bdbdbd;
-        font-size: 18px;
+        @include mq(desktop) {
+            font-size: 18px;
+        }
         font-weight: bold;
         letter-spacing: 8px;
         opacity: 0.6;
@@ -282,5 +290,9 @@ a {
         color: white;
         background: #005689;
         border-radius: 100px;
+    }
+
+    @include mq(tablet) {
+        display: none;
     }
 }
