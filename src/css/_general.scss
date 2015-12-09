@@ -34,14 +34,26 @@ a {
     padding-top: $top;
 
     @include mq(tablet) {
-        &.is-sticky {
+        .is-sticky > & {
             position: fixed;
             top: 0;
         }
 
-        &.is-bottom {
+        .is-bottom > & {
             bottom: 0;
         }
+    }
+
+    &.ls-sticky--map {
+        padding-top: (get-line-height(header, 2) + $top);
+        @include mq(tablet) {
+            padding-top: (get-line-height(header, 5) + $top);
+        }
+    }
+
+    &.ls-sticky--header {
+        z-index: 5;
+        background-color: white;
     }
 }
 
@@ -58,7 +70,7 @@ a {
     }
 
     @include mq(tablet) {
-        .ls-app .is-sticky & {
+        .is-sticky > & {
             padding: 0 20px;
         }
     }
@@ -201,7 +213,7 @@ a {
         white-space: normal;
         overflow-x: visible;
         overflow-y: visible;
-        padding-top: (get-line-height(header, 5) + $top) !important;
+        padding-top: (get-line-height(header, 5) + $top);
     }
 }
 

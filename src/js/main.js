@@ -21,7 +21,7 @@ function app(el, config, data) {
         el.classList.add('ls-app');
     }
 
-    sticky(el, el.querySelector('.js-ls-container'));
+    sticky(el, el.querySelector('.js-ls-header'), el.querySelector('.js-ls-container'));
 
     var ruleEls = [].slice.apply(el.querySelectorAll('.js-ls-rule'));
     var mapEls = [].slice.apply(el.querySelectorAll('.js-ls-map'));

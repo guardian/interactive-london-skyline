@@ -25,10 +25,10 @@ export default function sticky(parentEl, stickyEl) {
             var newSticky = pageY >= parentTop && !newBottom;
 
             if (isSticky !== newSticky) {
-                isSticky = toggleClass(stickyEl, newSticky, 'is-sticky');
+                isSticky = toggleClass(parentEl, newSticky, 'is-sticky');
             }
             if (isBottom !== newBottom) {
-                isBottom = toggleClass(stickyEl, newBottom, 'is-bottom');
+                isBottom = toggleClass(parentEl, newBottom, 'is-bottom');
             }
         });
     });
