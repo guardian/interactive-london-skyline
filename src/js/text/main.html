@@ -1,8 +1,8 @@
 <div class="ls-sticky js-ls-container">
     <div class="ls-sticky__inner">
-        <h2 class="ls-title">How the Eastern cluster was defined</h2>
+        <h2 class="ls-title">{{=it.data.config.headline}}</h2>
         <img class="ls-map" src="{{=it.config.assetPath}}/assets/img/map0.png" />
-        {{~it.rules :rule:i}}
+        {{~it.data.rules :rule:i}}
             <img class="ls-map ls-map--rule js-ls-map" {{?!i}}style="visibility:hidden"{{?}}
                  src="{{=it.config.assetPath}}/assets/img/map{{=i}}.png" />
         {{~}}
@@ -10,11 +10,10 @@
 </div>
 <div class="ls-container">
     <ul class="ls-rules js-ls-rules">
-        {{~it.rules :rule:i}}
+        {{~it.data.rules :rule:i}}
             <li class="ls-rule js-ls-rule">
                 <div class="ls-rule-size">
                     <div class="ls-rule-container">
-                        {{?rule.rule}}<h3 class="ls-rule__name">{{=rule.rule}}</h3>{{?}}
                         <p class="ls-rule__copy">{{=rule.copy}}</p>
                     </div>
                 </div>

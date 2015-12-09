@@ -170,17 +170,6 @@ a {
     }
 }
 
-.ls-rule__name {
-    @include f-header;
-    font-size: 16px;
-    line-height: 20px;
-    margin: 0 0 12px 0;
-
-    @include mq(tablet) {
-        @include fs-header(3, $size-only: true);
-    }
-}
-
 .ls-rule__copy {
     @include fs-bodyCopy(2);
 
@@ -192,6 +181,10 @@ a {
     max-width: 420px;
 
     counter-increment: rules;
+
+    b {
+        color: #333;
+    }
 }
 
 .ls-rules-next {

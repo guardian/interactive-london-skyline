@@ -14,8 +14,8 @@ const breakpoint = 740;
 var templateFn = doT.template(mainHTML);
 var sheet = sheetURL('1pmrlEZalQnqUHYT63y2fsrYbCXtbN1oAkEWHQ_n3VFA', true); // TODO: remove test
 
-function app(el, config, rules) {
-    el.innerHTML = templateFn({rules, config});
+function app(el, config, data) {
+    el.innerHTML = templateFn({data, config});
     el.classList.add('ls-interactive');
     if (!guardian.api) {
         el.classList.add('ls-app');
@@ -73,6 +73,6 @@ export function init(el, context, config, mediator) {
         'url': sheet,
         'type': 'json',
         'crossOrigin': true,
-        'success': resp => app(el, config, resp.rules)
+        'success': resp => app(el, config, resp)
     });
 }
