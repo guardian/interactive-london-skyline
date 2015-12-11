@@ -12,7 +12,7 @@ import mainHTML from './text/main.html!text'
 const breakpoint = 740;
 
 var templateFn = doT.template(mainHTML);
-var sheet = sheetURL('1pmrlEZalQnqUHYT63y2fsrYbCXtbN1oAkEWHQ_n3VFA', true); // TODO: remove test
+var sheet = sheetURL('1pmrlEZalQnqUHYT63y2fsrYbCXtbN1oAkEWHQ_n3VFA');
 
 function app(el, config, data) {
     el.innerHTML = templateFn({data, config});
